@@ -2,13 +2,13 @@ Git Cheat Sheet
 ===============
 Basic Workflow
 --------------
-* Create a new project.
-* Develop code:
-** For small code edits like adding a comment or fixing a typo, I make the changes directly on Master.
-** For features, I create a new branch for that feature and do all the work on that branch. Once a feature is complete and tested, I merge that branch back into Master.
-** While working on a particular feature, if you need to get changes from Master into your feature branch, then rebase.
-* Once your Master branch is ready for distribution, create a tag with the version number of the distribution. Then create an archive from that tag and distribute that file.
-* Continue to develop code and then tag and distribute that code.
+1. Create a new project.
+2. Develop code:
+  * For small code edits like adding a comment or fixing a typo, I make the changes directly on Master.
+  * For features, I create a new branch for that feature and do all the work on that branch. Once a feature is complete and tested, I merge that branch back into Master.
+  * While working on a particular feature, if you need to get changes from Master into your feature branch, then rebase.
+3. Once your Master branch is ready for distribution, create a tag with the version number of the distribution. Then create an archive from that tag and distribute that file.
+4. Continue to develop code and then tag and distribute that code.
 
 
 Branches
