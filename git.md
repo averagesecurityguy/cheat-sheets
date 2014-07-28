@@ -23,16 +23,16 @@ Branches
 
 Tags
 ----
-* Create a new tag for version 1.4: `git tag -a v1.4 -m "Some Message."`
+* Create a new tag for version 1.4.0: `git tag -a v1.4.0 -m "Some Message."`
 * View all tags: `git tag -n`
-* Delete the tag for version 1.4: `git tag -d v1.4`
+* Delete the tag for version 1.4.0: `git tag -d v1.4.0`
 * Push the tags: `git push --tags`
 
 
 Create Archive From Tag
 -----------------------
-* Create an archive (Option 1): `git archive --prefix=git-1.4.0/ -o git-1.4.0.tar.gz v1.4.0`
-* Create an archive (Option 2): `git archive --format=tar.gz --prefix=git-1.4.0/ v1.4.0 >git-1.4.0.tar.gz`
+* Create an archive for version 1.4.0 (Option 1): `git archive --prefix=<project_name>-1.4.0/ -o <project_name>-1.4.0.tar.gz v1.4.0`
+* Create an archive for version 1.4.0 (Option 2): `git archive --format=tar.gz --prefix=<project_name>-1.4.0/ v1.4.0 > <project_name>-1.4.0.tar.gz`
 
 
 View Commits Between Tags
