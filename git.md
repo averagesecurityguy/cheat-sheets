@@ -5,7 +5,10 @@ Basic Workflow
 1. Create a new project.
 2. Develop code:
   * For small code edits like adding a comment or fixing a typo, I make the changes directly on Master.
-  * For features, I create a new branch for that feature and do all the work on that branch. Once a feature is complete and tested, I merge that branch back into Master.
+  * For features, I create a new branch for that feature and do all the work on that branch.
+    * After creating the branch, I add the branch to the upstream server.
+    * While developing on the branch I make sure that I am making regular commits and pushing the changes to the upstream server.
+    * Once a feature is complete and tested, I merge that branch back into Master and delete the branch.
   * While working on a particular feature, if you need to get changes from Master into your feature branch, then rebase.
 3. Once your Master branch is ready for distribution, create a tag with the version number of the distribution. Then create an archive from that tag and distribute that file.
 4. Continue to develop code and then tag and distribute that code.
@@ -15,6 +18,7 @@ Branches
 --------
 * Create a new branch: `git checkout -b <branch_name>`
 * Move to a branch: `git checkout <branch_name>`
+* Add a branch to upstream server: `git push --set-upstream origin <branch_name>`
 * Push a branch: `git push -u origin <branch_name>`
 * Merge two branches: `git merge <branch_name1> <branch_name2>`
 * Delete a branch: `git branch -d <branch_name>`
