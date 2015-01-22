@@ -49,6 +49,7 @@ echo "Adding new firewall rules."
 iptables -A INPUT -i eth0 -p tcp --dport $3 -m state --state NEW,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i eth0 -p tcp -m state --state ESTABLISHED -j ACCEPT
 iptables -A INPUT -i eth0 -p udp --sport 53 -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
 iptables -P INPUT DROP
 iptables -P OUTPUT ACCEPT
 iptables -P FORWARD DROP
