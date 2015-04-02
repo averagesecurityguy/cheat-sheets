@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Copyright (c) 2014, LCI Technology Group, LLC
+# All rights reserved.
+# See LICENSE file for details.
+
 #-----------------------------------------------------------------------------
 #
 # Script to prepare a new DigitalOcean Ubuntu or Debian install for first use.
