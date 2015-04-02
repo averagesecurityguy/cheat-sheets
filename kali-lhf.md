@@ -7,8 +7,11 @@ Kali is available for download at http://kali.org/downloads
 Setup Kali for First Use
 ------------------------
 Run `apt-get update` to get the latest package lists.
+
 Run `apt-get upgrade` to install the latest packages.
+
 Some packages may be held back, install those packages using `apt-get dist-upgrade` or `apt-get install <package_name>`.
+
 Use `apt-get autoremove` to remove packages that are no longer needed.
 
 Setup Metasploit for First Use
