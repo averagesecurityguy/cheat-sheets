@@ -1,5 +1,7 @@
 Finding Low Hanging Fruit with Kali
 ===================================
+This cheat sheet was developed to accompany the talk Finding Low Hanging Fruit with Kali, which was presented at [Bsides Nashville](http://bsidesnash.org/) in April 2015.
+
 How to Get Kali
 ---------------
 Kali is available for download at http://kali.org/downloads
