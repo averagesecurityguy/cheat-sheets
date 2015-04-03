@@ -105,3 +105,8 @@ Metasploit also has a module for this.
 Metasploit has a lot of exploits for web interfaces
 
     search /http/
+
+Online Resources
+----------------
+[Metasploit Unleashed](http://www.offensive-security.com/metasploit-unleashed/Main_Page)
+[Nmap Tutorial](http://www.cyberciti.biz/networking/nmap-command-examples-tutorials/)
