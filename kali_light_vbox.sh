@@ -30,6 +30,8 @@ if [ ! -f "/media/cdrom/VBoxLinuxAdditions.run" ]; then
 else
     /bin/bash /media/cdrom/VBoxLinuxAdditions.run
 fi
+umount /media/cdrom
+eject /media/cdrom
 
 echo "Installing Kali top 10 tools."
 pass=$(head -c 24 /dev/urandom | base64)
