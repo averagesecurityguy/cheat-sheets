@@ -2,7 +2,8 @@
 
 #----------------------------------------------------------------------------
 # The Kali light distro is a minimal install that requires some extra steps
-# to install the necessary tools. This script will do the following:
+# to run it well in VirtualBox and to install the basic pentesting tools.
+# This script will do the following:
 #
 #   * Install packages needed to build the VirtualBox Guest Additions
 #   * Install the VirtualBox Guest Additions
@@ -22,7 +23,7 @@ apt-get -y upgrade
 echo "Installing build tools and headers."
 apt-get -y install build-essential linux-headers-$(uname -r)
 
-echo "Installing the Virtual Box Guest Additions."
+echo "Installing the VirtualBox Guest Additions."
 mount /media/cdrom
 if [ ! -f "/media/cdrom/VBoxLinuxAdditions.run" ]; then
     echo "VirtualBox Guest Additions CD not mounted, skipping."
