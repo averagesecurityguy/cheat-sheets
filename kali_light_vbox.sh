@@ -11,7 +11,6 @@
 #     database.
 #   * Configure PostgreSQL to start on boot
 #   * Initialize the MSF database
-#   * Reboot the computer.
 #
 # Prior to running this script, insert the VirtualBox Guest Additions CD
 #-----------------------------------------------------------------------------
@@ -37,7 +36,7 @@ echo "Installing Kali top 10 tools."
 pass=$(head -c 24 /dev/urandom | base64)
 echo "mysql-server-5.5 mysql-server/root_password_again password $pass" | debconf-set-selections
 echo "mysql-server-5.5 mysql-server/root_password password $pass" | debconf-set-selections
-echo "wireshark-common/install-setuid false" | debconf-set-selections
+echo "wireshark-common wireshark-common/install-setuid boolean false" | debconf-set-selections
 apt-get -q -y install kali-linux-top10 seclists
 
 echo "Configuring Metasploit Database"
