@@ -22,7 +22,6 @@ echo "Installing build tools and headers."
 apt-get -q -y install build-essential linux-headers-$(uname -r)
 
 echo "Installing the VirtualBox Guest Additions."
-read -p "Insert the VirtualBox Guest Additions CD and press [Enter] key..."
 mount /media/cdrom
 if [ ! -f "/media/cdrom/VBoxLinuxAdditions.run" ]; then
     echo "VirtualBox Guest Additions CD not mounted, skipping."
