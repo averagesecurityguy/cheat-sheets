@@ -29,7 +29,7 @@ update-rc.d postgresql enable
 msfdb init
 
 echo "Installing VirtualBox Guest Additions"
-apt-get -y install virtualbox-guest-x11
+apt-get -y install linux-image-amd64 virtualbox-guest-x11
 
 echo "MySQL Root Password: $pass"
 echo "Please reboot."
