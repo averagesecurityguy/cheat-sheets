@@ -32,5 +32,3 @@ echo "Configure services to start on boot."
 update-rc.d postgresql enable
 update-rc.d metasploit enable
 
-# Setup is complete
-echo "New user account is ready to use."
