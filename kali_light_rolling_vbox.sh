@@ -14,22 +14,22 @@
 #-----------------------------------------------------------------------------
 echo "Updating packages"
 apt-get update
-apt-get -q -y upgrade
-
-echo "Installing VirtualBox Guest Additions"
-apt-get -q -y install virtualbox-guest-x11
+apt-get -y upgrade
 
 echo "Installing Kali top 10 tools."
 pass=$(head -c 24 /dev/urandom | base64)
 echo "mysql-server-5.6 mysql-server/root_password_again password $pass" | debconf-set-selections
 echo "mysql-server-5.6 mysql-server/root_password password $pass" | debconf-set-selections
 echo "wireshark-common wireshark-common/install-setuid boolean false" | debconf-set-selections
-apt-get -q -y install kali-linux-top10 seclists
+apt-get -y install kali-linux-top10 seclists
 
 echo "Configuring Metasploit Database"
 /etc/init.d/postgresql start
 update-rc.d postgresql enable
 msfdb init
+
+echo "Installing VirtualBox Guest Additions"
+apt-get -y install virtualbox-guest-x11
 
 echo "MySQL Root Password: $pass"
 echo "Please reboot."
