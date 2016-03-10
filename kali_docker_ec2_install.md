@@ -9,23 +9,21 @@ Create a new Instance
 
 Install Docker and Kali
 -----------------------
-1. Copy the docker_kali_setup.sh script (below) to the new instance and run the script. This will update the server, install docker, and download a minimal Kali docker image.
-2. Once the script is finished, run the following command to get a root shell in the Kali docker image
+1. Copy the docker_kali_setup.sh script (below) to the new instance and run the script. This will update the server, install docker, and download a full Kali docker image. This will take a while.
 
-    `sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash`
+    `sudo sh docker_kali_setup.sh`
 
-3. Once inside the root shell run the following command to install the full Kali image:
+2. When you want to run a Kali command start a new root shell in docker and execute the command.
 
-    `apt-get update && apt-get install kali-linux-full`
+    `sudo docker run -t -i kali <command>`
 
-4. Exit the docker shell.
-5. When you want to run a Kali command start a new root shell in docker and execute the command.
+3. If you will be running services, such as metasploit, inside the docker container then you need to start docker with the following command.
 
-    `sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash`
+    `sudo docker run --net=host -t -i kali /bin/bash`
 
-6. If you will be running services, such as metasploit, inside the docker container then you need to start docker with the following command.
+4. If you would like to save any changes you've made to the container run the commit command after exiting.
 
-    `sudo docker run --net=host -t -i kalilinux/kali-linux-docker /bin/bash`
+    `sudo docker commit $(sudo docker ps -lq) kali`
 
 
 Docker Kali Setup Script
@@ -49,6 +47,10 @@ sudo service docker start
 
 # Install Kali docker image
 sudo docker pull kalilinux/kali-linux-docker
+sudo docker run kalilinux/kali-linux-docker apt-get update
+sudo docker commit $(sudo docker ps -lq) kali
+sudo docker run kali apt-get -y install kali-linux-full
+sudo docker commit $(sudo docker ps -lq) kali 
 ```
 
 Sources
