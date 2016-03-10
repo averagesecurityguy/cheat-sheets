@@ -23,7 +23,9 @@ Install Docker and Kali
 
     `sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash`
 
-6. I haven't figured out docker networking yet so I don't know how reverse shells in Metasploit will just work or if something else has to be done. Feel free to enlighten me on the subject.
+6. If you will be running services, such as metasploit, inside the docker container then you need to start docker with the following command.
+
+    `sudo docker run --net=host -t -i kalilinux/kali-linux-docker /bin/bash`
 
 
 Docker Kali Setup Script
