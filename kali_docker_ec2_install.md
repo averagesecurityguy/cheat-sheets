@@ -14,10 +14,9 @@ Install Docker and Kali
 
     `sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash`
 
-3. Once inside the root shell run the following commands to install the full Kali image:
+3. Once inside the root shell run the following command to install the full Kali image:
 
-    `apt-get update`
-    `apt-get install kali-linux-full`
+    `apt-get update && apt-get install kali-linux-full`
 
 4. Exit the docker shell.
 5. When you want to run a Kali command start a new root shell in docker and execute the command.
