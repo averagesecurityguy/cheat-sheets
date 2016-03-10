@@ -12,17 +12,17 @@ Install Docker and Kali
 1. Copy the docker_kali_setup.sh script (below) to the new instance and run the script. This will update the server, install docker, and download a minimal Kali docker image.
 2. Once the script is finished, run the following command to get a root shell in the Kali docker image
 
-    sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash
+    `sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash`
 
 3. Once inside the root shell run the following commands to install the full Kali image:
 
-    apt-get update
-    apt-get install kali-linux-full
+    `apt-get update`
+    `apt-get install kali-linux-full`
 
 4. Exit the docker shell.
 5. When you want to run a Kali command start a new root shell in docker and execute the command.
 
-    sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash
+    `sudo docker run -t -i kalilinux/kali-linux-docker /bin/bash`
 
 6. I haven't figured out docker networking yet so I don't know how reverse shells in Metasploit will just work or if something else has to be done. Feel free to enlighten me on the subject.
 
