@@ -48,3 +48,8 @@ sudo service docker start
 # Install Kali docker image
 sudo docker pull kalilinux/kali-linux-docker
 ```
+
+Sources
+-------
+https://docs.docker.com/engine/installation/linux/ubuntulinux/
+https://www.kali.org/news/official-kali-linux-docker-images/
