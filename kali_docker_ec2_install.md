@@ -51,5 +51,5 @@ sudo docker pull kalilinux/kali-linux-docker
 
 Sources
 -------
-https://docs.docker.com/engine/installation/linux/ubuntulinux/
-https://www.kali.org/news/official-kali-linux-docker-images/
+* https://docs.docker.com/engine/installation/linux/ubuntulinux/
+* https://www.kali.org/news/official-kali-linux-docker-images/
