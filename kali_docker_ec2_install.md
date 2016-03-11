@@ -45,12 +45,14 @@ sudo apt-get update
 sudo apt-get -y install linux-image-extra-$(uname -r) apparmor docker-engine
 sudo service docker start
 
-# Install Kali docker image
+# Install Kali Top 10 Metapackage
 sudo docker pull kalilinux/kali-linux-docker
-sudo docker run kalilinux/kali-linux-docker apt-get update
-sudo docker commit $(sudo docker ps -lq) kali
-sudo docker run kali apt-get -y install kali-linux-full
-sudo docker commit $(sudo docker ps -lq) kali 
+sudo docker run kalilinux/kali-linux-docker sh -c 'echo "deb http://archive-2.kali.org/kali kali-rolling main non-free contrib" > /etc/apt/sources.list; apt-get update; apt-get -y install kali-linux-top10'
+sudo docker commit $(sudo docker ps -lq) kali:v1
+
+echo "To access the Kali server run 'sudo docker run -it kali:v1 /bin/bash'."
+echo "To save changes to the server run 'sudo docker commit $(sudo docker ps -lq) kali:vN', where N is a number"
+echo "To run the saved server use 'sudo docker run -it kali:vN /bin/bash'."
 ```
 
 Sources
