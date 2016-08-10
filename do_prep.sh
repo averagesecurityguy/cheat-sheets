@@ -26,11 +26,11 @@
 # you should be able to login with your low-privileged user account.
 #
 # Usage:
-#   ./do_prep.sh username password ssh_port
+#   ./do_prep.sh username ssh_port
 #-----------------------------------------------------------------------------
 
-if [ "$#" -ne 3 ]; then
-  echo "Usage: $0 username password ssh_port" >&2
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 username ssh_port" >&2
   exit 1
 fi
 
@@ -42,7 +42,7 @@ apt-get -y autoremove
 
 # Update the SSH configuration
 echo "Reconfiguring SSH."
-sed "s/Port 22/Port $3/" < /etc/ssh/sshd_config > /tmp/sshd_config
+sed "s/Port 22/Port $2/" < /etc/ssh/sshd_config > /tmp/sshd_config
 cp /tmp/sshd_config /etc/ssh/sshd_config
 sed "s/#PasswordAuthentication yes/PasswordAuthentication no/" < /etc/ssh/sshd_config > /tmp/sshd_config
 cp /tmp/sshd_config /etc/ssh/sshd_config
@@ -50,7 +50,7 @@ service ssh restart
 
 # Add the firewall rules
 echo "Adding new firewall rules."
-iptables -A INPUT -i eth0 -p tcp --dport $3 -m state --state NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp --dport $2 -m state --state NEW,ESTABLISHED -j ACCEPT
 iptables -A INPUT -i eth0 -p tcp -m state --state ESTABLISHED -j ACCEPT
 iptables -A INPUT -i eth0 -p udp --sport 53 -j ACCEPT
 iptables -A INPUT -i lo -j ACCEPT
@@ -69,8 +69,11 @@ echo 'iptables-restore < /etc/firewall.conf' >> /etc/network/if-up.d/iptables
 # Add a new low-privileged user account
 echo "Adding new low-privileged user account."
 ssh-keygen -f user -N ""
+pass=$(head -c 12 /dev/urandom | base64)
 useradd -d /home/$1 -m -G sudo -s /bin/bash $1
-echo $1:$2 | chpasswd
+echo $1:$pass | chpasswd
 mkdir /home/$1/.ssh
 mv user.pub /home/$1/.ssh/authorized_keys
 chown -R $1:$1 /home/$1/.ssh
+echo "User account $1 created with $pass."
+
