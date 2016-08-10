@@ -75,5 +75,5 @@ echo $1:$pass | chpasswd
 mkdir /home/$1/.ssh
 mv user.pub /home/$1/.ssh/authorized_keys
 chown -R $1:$1 /home/$1/.ssh
-echo "User account $1 created with $pass."
 
+echo "User account $1 created with password $pass."
