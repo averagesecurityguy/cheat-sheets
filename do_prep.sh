@@ -68,8 +68,9 @@ echo 'iptables-restore < /etc/firewall.conf' >> /etc/network/if-up.d/iptables
 
 # Add a new low-privileged user account
 echo "Adding new low-privileged user account."
+ssh-keygen -f user -N ""
 useradd -d /home/$1 -m -G sudo -s /bin/bash $1
 echo $1:$2 | chpasswd
 mkdir /home/$1/.ssh
-cp ~/.ssh/authorized_keys /home/$1/.ssh/authorized_keys
+mv user.pub /home/$1/.ssh/authorized_keys
 chown -R $1:$1 /home/$1/.ssh
